@@ -24,8 +24,8 @@ void create(void)
 			if(ctr[i] == 6)
 				continue;
 			temp = rand() % 5000;
-			if(i!=temp)
-			if(adjmat.at(i).at(temp) == -1)
+			if(i!=temp) //Self loop
+			if(adjmat.at(i).at(temp) == -1) //
 			if(ctr[i] < 6)
 			if(ctr[temp] < 6)
 				{
@@ -38,7 +38,7 @@ void create(void)
 		}
 	}
 }
-void check(void)
+void display(void)
 {
 	for(i = 0; i < 5000; i++)
 	{
@@ -50,13 +50,22 @@ void check(void)
 		}
 	}
 }
+void check(void)
+{
+	for (i=0;i<5000;i++)
+	{
+		if (ctr[i] != 6)
+			cout<< i << " "<<ctr[i]<<endl;
+	}
+}
 };
 
 int main()
 {
 	sparsegraph G;
 	G.create();
-	G.check();
+	//G.check();
+	//G.display();
 	
 		//Matrix 5000 * 5000
 	return 0;
