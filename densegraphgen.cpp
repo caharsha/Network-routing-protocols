@@ -32,18 +32,6 @@ class densegraph
 		}	
 	
 	}
-	void display(void)
-{
-	for(i = 0; i < 5000; i++)
-	{
-		cout<<endl<<endl<<endl<<i<<" ";
-		for(j=0;j<5000;j++)
-		{
-			if(adjmat.at(i).at(j) != -1)
-			cout<<j<<" ";
-		}
-	}
-}
 	void check(void)
 	{
 		double density = 0;
@@ -77,12 +65,11 @@ int main()
 	t1 = clock();
 	densegraph G;
 	G.create();
-	G.check();
-	//G.display();
+	//G.check();
 	t2 = clock();
 	float prog_runtime = float(t2 - t1);
     prog_runtime = prog_runtime / CLOCKS_PER_SEC;
-    cout<<endl<<"The program ran in " <<prog_runtime<<" seconds.";
+    cout<<"The program ran in " <<prog_runtime<<" seconds.";
 return 0;
 }
 
