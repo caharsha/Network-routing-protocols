@@ -1,6 +1,5 @@
 #include<iostream>
 #include<cstdlib>
-#include<ctime>
 #include<vector>
 using namespace std;
 class sparsegraph
@@ -24,8 +23,8 @@ void create(void)
 			if(ctr[i] == 6)
 				continue;
 			temp = rand() % 5000;
-			if(i!=temp) //Self loop
-			if(adjmat.at(i).at(temp) == -1) //
+			if(i!=temp)
+			if(adjmat.at(i).at(temp) == -1)
 			if(ctr[i] < 6)
 			if(ctr[temp] < 6)
 				{
@@ -38,7 +37,7 @@ void create(void)
 		}
 	}
 }
-void display(void)
+void check(void)
 {
 	for(i = 0; i < 5000; i++)
 	{
@@ -50,23 +49,18 @@ void display(void)
 		}
 	}
 }
-void check(void)
-{
-	for (i=0;i<5000;i++)
-	{
-		if (ctr[i] != 6)
-			cout<< i << " "<<ctr[i]<<endl;
-	}
-}
 };
 
 int main()
 {
+	clock_t t1, t2;
+	t1 = clock();
 	sparsegraph G;
 	G.create();
 	//G.check();
-	//G.display();
-	
-		//Matrix 5000 * 5000
+	t2 = clock();
+	float prog_runtime = float(t2 - t1);
+    prog_runtime = prog_runtime / CLOCKS_PER_SEC;
+    cout<<"The program ran in " <<prog_runtime<<" seconds.";
 	return 0;
 }
